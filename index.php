@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Blog de Videojuegos</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 </head>
 
 <body>
@@ -41,6 +42,9 @@
                 </li>
             </ul>
         </nav>
+
+        <div class="clearfix"></div>
+
     </header>
 
     <div id="contenedor">
