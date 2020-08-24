@@ -1,4 +1,4 @@
-<?php require_once 'conexion.php'; ?>
+
 
 
 <div class="clearfix"></div>

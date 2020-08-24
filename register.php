@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if(isset($_POST)){
 
@@ -16,14 +17,14 @@ if(isset($_POST)){
         $valid_name = true;
     }else{
         $valid_name = false;
-        $error['nombre'] = "El nombre no es valido";
+        $error['name'] = "El nombre no es valido";
     }
 
     if(!empty($lastname) && !is_numeric($lastname) && !preg_match("/[0-9]/", $lastname )){
         $valid_lastname = true;
     }else{
         $valid_lastname = false;
-        $error['apellido'] = "El apellido no es valido";
+        $error['lastname'] = "El apellido no es valido";
     }
     
     /*
@@ -46,10 +47,18 @@ if(isset($_POST)){
     }else{
         
         $valid_password= false;
-        $error['contraseña'] = "La contraseña está vacia";
+        $error['password'] = "La contraseña está vacia";
     }
 
-    
+    $save_user = false;
+    if(count($error) == 0){
+        $save_user = true;
+        //insertar usuario en la tabla usuarios de la BD
+        
+    }else{
+         $_SESSION['error'] = $error;
+         header('location: index.php');
+    }
 
 
 }
