@@ -10,8 +10,23 @@ function showError($error, $field){
 }
 
 function clearError(){
-    $_SESSION['error']= null;
-    $clear = session_unset();
+    $clear = false;
+
+    if(isset($_SESSION['error'])){
+      $_SESSION['error']= null;
+ 
+      $clear = session_unset();
+    }
+
+    if(isset($_SESSION['success'])){
+      $_SESSION['success']= null;
+ 
+      session_unset();
+    }
+   
+   
+
+
 
     return $clear;
 }
