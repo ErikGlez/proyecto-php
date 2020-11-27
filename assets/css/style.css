@@ -198,8 +198,9 @@ input[type="password"]{
 }
 
 
+
 input[type="bottom"],
-input[type="submit"]{
+input[type="submit"], .boton{
     margin-top: 5px;
     margin-bottom: 5px;
     display: block;
@@ -210,6 +211,28 @@ input[type="submit"]{
     cursor: pointer;
     padding: 6px;
 
+
+}
+
+.boton{
+    text-align: center;
+    width: 120px;
+}
+
+.verde{
+    background-color: seagreen;
+    border: 1px solid rgb(47, 116, 77);
+    
+}
+
+.naranja{
+    background-color: tomato;
+    border: 1px solid rgb(204, 76, 53);
+}
+
+.amarillo{
+    background-color: rgb(255, 206, 71);
+    border: 1px solid rgb(231, 181, 43);
 }
 
 /* pie de pagina */
@@ -226,4 +249,21 @@ input[type="submit"]{
     height: auto;
     padding: 15px;
     text-align: center;
+}
+
+.alerta{
+    padding: 5px;
+    font-size: 14px;
+    color: white;
+    background:khaki;
+    margin-bottom: 15px;
+    border-radius: 2px;
+}
+
+.alerta-error{
+    background: tomato;
+}
+
+.alerta-exito{
+    background:seagreen;
 }

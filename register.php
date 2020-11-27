@@ -5,13 +5,16 @@ if (isset($_POST)) {
 
     require_once "includes/conexion.php";
 
-    session_start();
+    if(!$_SESSION){
+        session_start();
+    }
+   
 
     //Recogiendo los valores del formulario de registro
-    $name = isset($_POST['name'])  ? $_POST['name'] : false;
-    $lastname = isset($_POST['lastname']) ? $_POST['lastname'] : false;
-    $email = isset($_POST['email']) ? $_POST['email'] : false;
-    $password = isset($_POST['password']) ? $_POST['password'] : false;
+    $name = isset($_POST['name'])  ? mysqli_real_escape_string($db, $_POST['name'] )  : false;
+    $lastname = isset($_POST['lastname']) ? mysqli_real_escape_string($db, $_POST['lastname'] ) : false;
+    $email = isset($_POST['email']) ? mysqli_real_escape_string($db, trim($_POST['email'] )) : false;
+    $password = isset($_POST['password']) ? mysqli_real_escape_string($db, $_POST['password'] ): false;
 
     //Array de errores
     $error = array();
@@ -68,6 +71,7 @@ if (isset($_POST)) {
         if ($save) {
             $_SESSION['success'] = "El registro se ha completado con éxito";
         } else {
+            
             $_SESSION['error']['general'] = "fallo al guardar el usuario";
         }
     } else {

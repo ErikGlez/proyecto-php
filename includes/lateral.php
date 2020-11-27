@@ -3,8 +3,24 @@
 ?>
 
 <aside id="sidebar">
+        <?php if(isset($_SESSION['usuario'])): ?>
+        <div id="usuario-logeado" class="bloque">
+            <h3>Bienvenido/a, <?= $_SESSION['usuario']['nombre'].' '. $_SESSION['usuario']['apellidos']; ?></h3>
+            <!-- botones -->
+            <a href="logout.php" class="boton naranja">Crear entrada</a>
+            <a href="logout.php" class="boton amarillo">Crear categoria</a>
+            <a href="logout.php" class="boton verde">Mis datos</a>
+            <a href="logout.php" class="boton">Cerrar Sesión</a>
+
+        </div>
+        <?php endif; ?>
         <div id="login" class="bloque">
             <h3>Identificate</h3>
+             <?php if(isset($_SESSION['error-login']) && !isset($_SESSION['usuario'])): ?>
+                <div class="alerta alerta-error">
+                    <h3><?= $_SESSION['error-login']; ?></h3>
+                </div>
+            <?php endif; ?>
             <form action="login.php" method="POST">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" />
@@ -27,7 +43,7 @@
 
                    </div> 
                 
-            <?php elseif(isset($_SESSION['error'])): ?>
+            <?php elseif(isset($_SESSION['error']['general'])): ?>
                 <div class="alerta alerta-error">
                    <?=$_SESSION['error']['general']?>
 
