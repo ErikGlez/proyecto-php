@@ -31,4 +31,19 @@ function clearError(){
     return $clear;
 }
 
+
+function obtenerCategorias($conexion){
+  $sql = "SELECT * FROM categorias ORDER BY id ASC;";
+  $categorias =mysqli_query($conexion, $sql);
+
+  $result = array();
+
+  if($categorias && mysqli_num_rows($categorias) >=1 ){
+    $result = $categorias;
+  }
+  return $result;
+
+}
+
+
 ?>
