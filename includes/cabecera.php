@@ -30,13 +30,18 @@
                 <!-- obtener las categorias para la cabecera -->
                 <?php 
                    $categorias = obtenerCategorias($db);
+                   if(!empty($categorias)):
                     while($categoria = mysqli_fetch_assoc($categorias)): 
                ?>
-                <li>
-                    <a href="categoria.php?id=<?=$categoria['id']?>"><?=$categoria['nombre']?></a>
-                </li>
+                    <li>
+                        <a href="categoria.php?id=<?=$categoria['id']?>"><?=$categoria['nombre']?></a>
+                    </li>
 
-               <?php endwhile; ?>
+               <?php 
+                   
+                     endwhile;
+                     endif;
+                ?>
                <!-- fin obtener categorias -->
                 <li>
                     <a href="index.php">Sobre mí</a>
